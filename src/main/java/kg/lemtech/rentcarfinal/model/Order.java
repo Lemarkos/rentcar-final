@@ -27,7 +27,7 @@ public class Order {
     Double priceWithDiscount;
     @ManyToOne
     @JoinColumn(name = "get_address_id",referencedColumnName = "id")
-    Address address;
+    Address getAddress;
     @ManyToOne
     @JoinColumn(name = "return_address_id", referencedColumnName = "id")
     Address returnAddress;
