@@ -11,7 +11,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "tb_cars")
+@Table(name = "tb_car")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -24,7 +24,7 @@ public class Car {
     String model;
     String photo;
     String description;
-    Integer mfYear;
+    Integer mnfYear;
     Double engineV;
     Double consumptionPer100;
     @Enumerated(value = EnumType.STRING)

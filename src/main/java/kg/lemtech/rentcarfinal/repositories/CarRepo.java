@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface CarRepo extends JpaRepository<Car, Long> {
-    @Query(value = "SElECT * FROM tb_cars WHERE is_available=false", nativeQuery = true)
+    @Query(value = "SElECT * FROM tb_car WHERE is_available=false", nativeQuery = true)
     List<Car> findByIsAvailableFalse(Boolean isAvailable);
-    @Query(value = "SElECT * FROM tb_cars WHERE is_available=true", nativeQuery = true)
+    @Query(value = "SElECT * FROM tb_car WHERE is_available=true", nativeQuery = true)
     List<Car> findByIsAvailableTrue(Boolean isAvailable);
 }

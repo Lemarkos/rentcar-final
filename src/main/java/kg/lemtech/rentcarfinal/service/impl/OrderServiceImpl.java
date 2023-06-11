@@ -45,14 +45,14 @@ public class OrderServiceImpl implements OrderService {
         orderRepo.save(order);
         return orderMapper.toDTO(order);
     }
-
+//  метод рассчитывает цену со скидкой
     private double getPriceWithDiscount(Order order, Car car) {
         double discount = getDiscountById(car.getId(), order.getDaysCount());
         double priceBeforeDiscount = order.getPriceBeforeDiscount();
         double discountAmount = priceBeforeDiscount * (discount / 100);
         return priceBeforeDiscount - discountAmount;
     }
-
+//  находит нужную скидку по id машины
     private double getDiscountById(Long id, int daysCount) {
         List<Discount> discountList = discountService.findAllByCarIdAndDaysCountLessThanEqualOrderByDaysCountDesc(id,daysCount);
         if (!discountList.isEmpty()) {
@@ -62,7 +62,7 @@ public class OrderServiceImpl implements OrderService {
             return 0;
         }
     }
-
+//  возвращает промежуток в днях между  двумя датами
     private int betweenDays(Order order) {
         Duration duration = Duration.between(order.getDateFrom(), order.getDateTo());
         return (int) duration.toDays();
